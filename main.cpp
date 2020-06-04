@@ -16,7 +16,7 @@ int main()
         std::cout << "Plik otwarty poprawnie" << std::endl;
         //tu operacje na pliku (zapis/odczyt)
         // X - wierzchołek startowy
-        // Y - łączna liczba węzłów
+        // Y - łączna liczba wierzchołków
         // Z - łączna liczba krawędzi 
         input_file >> X >> Y >> Z;
         int graph[Z][3];
