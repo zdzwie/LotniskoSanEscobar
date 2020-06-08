@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "graph.h"
 
 #define EDGES_MAX 1024
 
@@ -19,7 +20,7 @@ int main()
         // Y - łączna liczba wierzchołków
         // Z - łączna liczba krawędzi 
         input_file >> X >> Y >> Z;
-        int graph[Z][3];
+        Graph graph(0, Z);
         int temp_node_a, temp_node_b, temp_edge_weight;
         for(int i = 0; i < Z; i++){
             input_file >> temp_node_a >> temp_node_b >> temp_edge_weight;
@@ -35,17 +36,13 @@ int main()
                 std::cerr << msg << std::endl;
                 return 0;
             }
-            graph[i][0] = temp_node_a;
-            graph[i][1] = temp_node_b;
-            graph[i][2] = temp_edge_weight;
+            graph.InsertEdge(temp_node_a, temp_node_b, temp_edge_weight, 0);
         }
         //sprawdzenie poprawnosci wczytanych wartosci
         //indeks 0 - pierwszy wierzcholek
         //indeks 1 - drugi wierzcholek
         //indeks 2 - waga polaczenia
-        for(int i = 0; i < Z; i++){
-            std::cout << graph[i][0] << " " << graph[i][1] << " " << graph[i][2] << std::endl;
-        }
+        graph.print();
 
         input_file.close();
     }

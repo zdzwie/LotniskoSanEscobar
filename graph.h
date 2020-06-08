@@ -42,11 +42,11 @@ class EdgeNode {
 */
 class Graph {
 
-	private:
-		bool directed;
-		const int nodeNumber;
-		EdgeNode *edges[nodeNumber + 1];	/*!< Container with edges and nodes*/
 	public:
+		bool directed;
+		int nodeNumber;
+		EdgeNode **edges;	/*!< Container with edges and nodes*/
+	
 
 		Graph(bool,int);
 		~Graph();

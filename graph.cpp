@@ -15,12 +15,12 @@ EdgeNode::EdgeNode(int number, int weight) {
 
 EdgeNode::~EdgeNode(){}
 
-Graph::Graph(bool directed, int nodeNumber) {
+Graph::Graph(bool directed, int nodeNumber){
 
 	this->directed = directed;
 	this->nodeNumber = nodeNumber;
 
-	for (int i = 1; i < this->nodeNumber + 1; i++)
+	for (int i = 1; i < nodeNumber + 1; i++)
 		this->edges[i] = NULL;	
 }
 
@@ -33,17 +33,17 @@ void Graph::InsertEdge(int x, int y, int weight, bool directed) {
 		edge->next = this->edges[x];
 		this->edges[x] = edge;
 		if (!directed)
-			insertEdge(y, x, weight, true);
+			InsertEdge(y, x, weight, true);
 	}
 }
 
 void Graph::print() {
 	for (int v = 1; v < this->nodeNumber + 1; v++) {
 		if (this->edges[v] != NULL) {
-			std::cout << "Vertex" << v << " has neighbours: " << endl;
+			std::cout << "Vertex" << v << " has neighbours: " << std::endl;
 			EdgeNode* current = this->edges[v];
 			while (current != NULL) {
-				std::cout << current->number << endl;
+				std::cout << current->number << std::endl;
 				current = current->next;
 				}
 		}
@@ -60,7 +60,7 @@ void InitVars(bool discovered[], int distance[], int parent[], int graphSize) {
 
 void DijkstraAlgorithm(Graph* g, int parent[], int distance[], int start) {
 
-	bool discovered[g->number + 1];
+	bool discovered[g->nodeNumber + 1];
 	EdgeNode* tmp;
 
 	int vTMP;
@@ -68,7 +68,7 @@ void DijkstraAlgorithm(Graph* g, int parent[], int distance[], int start) {
 	int weight;
 	int smallestDistance;
 
-	InitVars(discovered, distance, parent, g->number);
+	InitVars(discovered, distance, parent, g->nodeNumber);
 
 	while (discovered[vTMP] == false) {
 		discovered[vTMP] == true;
@@ -85,7 +85,7 @@ void DijkstraAlgorithm(Graph* g, int parent[], int distance[], int start) {
 		}
 
 		smallestDistance = std::numeric_limits<int>::max();
-		for (int i = 1; i < (g->number); i++) {
+		for (int i = 1; i < (g->nodeNumber); i++) {
 			if (!discovered[i] && (distance[i] < smallestDistance)) {
 				vTMP = i;
 				smallestDistance = distance[i];
@@ -97,6 +97,6 @@ void DijkstraAlgorithm(Graph* g, int parent[], int distance[], int start) {
 void PrintShortestPath(int v, int parent[], int graphNumber) {
 	if (v > 0 && (v < graphNumber + 1) && parent[v] != -1) {
 		std::cout << parent[v] << " ";
-		PrintShortestPath(parent[v], parent, graphNumber)
+		PrintShortestPath(parent[v], parent, graphNumber);
 	}
 }
