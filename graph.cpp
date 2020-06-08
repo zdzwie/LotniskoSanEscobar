@@ -40,7 +40,7 @@ void Graph::InsertEdge(int x, int y, int weight, bool directed) {
 void Graph::print() {
 	for (int v = 1; v < this->nodeNumber + 1; v++) {
 		if (this->edges[v] != NULL) {
-			std::cout << "Vertex" << v << " has neighbours: " << std::endl;
+			std::cout << "Vertex " << v << " has neighbours: " << std::endl;
 			EdgeNode* current = this->edges[v];
 			while (current != NULL) {
 				std::cout << current->number << std::endl;
