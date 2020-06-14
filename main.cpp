@@ -34,6 +34,7 @@ int main()
                 }
             }catch(const char* msg) {
                 std::cerr << msg << std::endl;
+                input_file.close();
                 return 0;
             }
             graph.InsertEdge(temp_node_a, temp_node_b, temp_edge_weight, 0);
