@@ -35,7 +35,7 @@ int main() {
       } catch (const char *msg) {
         std::cerr << msg << std::endl;
         input_file.close();
-        return 0;
+        return 1;
       }
       graph.InsertEdge(temp_node_a, temp_node_b, temp_edge_weight, 0);
     }
@@ -48,5 +48,7 @@ int main() {
     input_file.close();
   } else {
     std::cout << "Plik nie zostal otwarty poprawnie" << std::endl;
+    return 1;
   }
+  return 0;
 }
