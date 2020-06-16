@@ -71,7 +71,6 @@ void DijkstraAlgorithm(Graph *g, int parent[], int distance[], int start) {
   InitVars(discovered, distance, parent, g->nodeNumber);
 
   while (discovered[vTMP] == false) {
-    discovered[vTMP] == true;
     tmp = g->edges[vTMP];
 
     while (tmp != nullptr) {
