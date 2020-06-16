@@ -51,7 +51,7 @@ public:
   ~Graph();
 
   void InsertEdge(int, int, int, bool);
-  void print();
+  void print() const;
 };
 
 void InitVars(bool discovered[], int distance[], int parent[], int graphSize);
