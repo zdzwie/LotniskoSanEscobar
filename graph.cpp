@@ -3,13 +3,13 @@
 EdgeNode::EdgeNode() {
   this->number = 0;
   this->weight = 0;
-  this->next = NULL;
+  this->next = nullptr;
 }
 
 EdgeNode::EdgeNode(int number, int weight) {
   this->number = number;
   this->weight = weight;
-  this->next = NULL;
+  this->next = nullptr;
 }
 
 EdgeNode::~EdgeNode() {}
@@ -20,7 +20,7 @@ Graph::Graph(bool directed, int nodeNumber) {
   this->nodeNumber = nodeNumber;
 
   for (int i = 1; i < nodeNumber + 1; i++)
-    this->edges[i] = NULL;
+    this->edges[i] = nullptr;
 }
 
 Graph::~Graph() {}
@@ -39,10 +39,10 @@ void Graph::InsertEdge(int x, int y, int weight, bool directed) {
 
 void Graph::print() {
   for (int v = 1; v < this->nodeNumber + 1; v++) {
-    if (this->edges[v] != NULL) {
+    if (this->edges[v] != nullptr) {
       std::cout << "Vertex " << v << " has neighbours: " << std::endl;
       EdgeNode *current = this->edges[v];
-      while (current != NULL) {
+      while (current != nullptr) {
         std::cout << current->number << std::endl;
         current = current->next;
       }
@@ -74,7 +74,7 @@ void DijkstraAlgorithm(Graph *g, int parent[], int distance[], int start) {
     discovered[vTMP] == true;
     tmp = g->edges[vTMP];
 
-    while (tmp != NULL) {
+    while (tmp != nullptr) {
       vNeighbour = tmp->number;
       weight = tmp->weight;
       if ((distance[vTMP] + weight) < distance[vNeighbour]) {
