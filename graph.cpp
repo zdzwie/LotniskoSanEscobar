@@ -39,10 +39,10 @@ void Graph::InsertEdge(int x, int y, int weight, bool directed) {
 
 void Graph::print() const {
   for (int v = 1; v < this->nodeNumber + 1; v++) {
-    if (this->edges[v] != nullptr) {
+    if (this->edges[v]) {
       std::cout << "Vertex " << v << " has neighbours: " << std::endl;
       EdgeNode *current = this->edges[v];
-      while (current != nullptr) {
+      while (current) {
         std::cout << current->number << std::endl;
         current = current->next;
       }
@@ -73,7 +73,7 @@ void DijkstraAlgorithm(Graph *g, int parent[], int distance[], int start) {
   while (discovered[vTMP] == false) {
     tmp = g->edges[vTMP];
 
-    while (tmp != nullptr) {
+    while (tmp) {
       vNeighbour = tmp->number;
       weight = tmp->weight;
       if ((distance[vTMP] + weight) < distance[vNeighbour]) {
