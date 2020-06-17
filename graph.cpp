@@ -43,7 +43,7 @@ void Graph::print() const {
       std::cout << "Vertex " << v << " has neighbours: " << std::endl;
       EdgeNode *current = this->edges[v];
       while (current) {
-        std::cout << current->number << std::endl;
+        std::cout << current->number << " (" << current->weight << ")" << std::endl;
         current = current->next;
       }
     }

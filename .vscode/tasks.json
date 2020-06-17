@@ -6,9 +6,7 @@
             "command": "D:\\Installs\\MinGW64\\mingw32\\bin\\g++.exe",
             "args": [
                 "-g",
-                "${file}",
-                "-g",
-                "graph.cpp",
+                "${workspaceFolder}\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
@@ -22,24 +20,6 @@
                 "kind": "build",
                 "isDefault": true
             }
-        },
-        {
-            "type": "shell",
-            "label": "C/C++: cpp.exe build active file",
-            "command": "D:\\Installs\\MinGW64\\mingw32\\bin\\cpp.exe",
-            "args": [
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": "build"
         }
     ],
     "version": "2.0.0"
