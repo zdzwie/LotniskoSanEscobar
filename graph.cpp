@@ -17,6 +17,7 @@ EdgeNode::EdgeNode(EdgeNode& parent) {
 	this->weight = parent.weight;
 }
 
+EdgeNode::~EdgeNode() {}
 
 EdgeNode::~EdgeNode() {}
 
@@ -60,7 +61,7 @@ void Graph::print() {
 			std::cout << "Vertex" << v << " has neighbours: " << endl;
 			EdgeNode* current = this->edges[v];
 			while (current != NULL) {
-				std::cout << current->number << endl;
+				std::cout << current->number << " (" << current->weight << ")" << std::endl;
 				current = current->next;
 			}
 		}
@@ -68,11 +69,11 @@ void Graph::print() {
 }
 
 void InitVars(bool discovered[], int distance[], int parent[], int graphSize) {
-	for (int i = 1; i < graphSize + 1; i++) {
-		discovered[i] = false;
-		distance[i] = std::numeric_limits<int>::max();
-		parent[i] = -1;
-	}
+  for (int i = 1; i < graphSize + 1; i++) {
+    discovered[i] = false;
+    distance[i] = std::numeric_limits<int>::max();
+    parent[i] = -1;
+  }
 }
 
 void DijkstraAlgorithm(Graph* g, int parent[], int distance[], int start) {
